@@ -1,25 +1,25 @@
-name: Deploy to GitHub Pages
+name: Deploy Squarespace HTTrack Site to GitHub Pages
 
 on:
   push:
     branches:
-      - main  # deploy when you push to main branch
+      - main   # triggers deploy on every push to main branch
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Setup Pages
+      - name: Configure GitHub Pages
         uses: actions/configure-pages@v3
 
-      - name: Upload to GitHub Pages
+      - name: Upload site folder
         uses: actions/upload-pages-artifact@v1
         with:
-          path: rarelinkmap.squarespace.com  # folder containing index.html
+          path: rarelinkmap.squarespace.com   # <-- your folder containing index.html
 
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v1
-
